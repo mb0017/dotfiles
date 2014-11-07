@@ -64,6 +64,9 @@ syntax enable
 colorscheme darkblue
 set background=dark
 
+" Comments should be grey
+highlight Comment ctermfg=grey
+
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
