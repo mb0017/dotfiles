@@ -1,21 +1,40 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-" Sections:
-"    -> General
-"    -> VIM user interface
-"    -> Colors and Fonts
-"    -> Files and backups
-"    -> Text, tab and indent related
-"    -> Visual mode related
-"    -> Moving around, tabs and buffers
-"    -> Status line
-"    -> Editing mappings
-"    -> vimgrep searching and cope displaying
-"    -> Spell checking
-"    -> Misc
-"    -> Helper functions
-"
+" -> Vundle settings
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+"Plugins
+"Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'   " Syntax checker (:SyntasticInfo for info)
+Plugin 'scrooloose/nerdtree'    " Tree file navigator
+
+" All of your Plugins must be added before the following line
+call vundle#end()
+
+map <C-n> :NERDTreeToggle<CR>
+
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -23,7 +42,7 @@
 set history=700
 
 " Fast saving
-nmap <leader>w :w!<cr>
+nmap <leader>w :w!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -43,11 +62,8 @@ set ignorecase
 " Highlight search results
 set hlsearch
 
-" For regular expressions turn magic on
-set magic
-
 " Show matching brackets when text indicator is over them
-set showmatch
+set showmatch matchtime=2
 
 " No annoying sound on errors
 set noerrorbells
@@ -65,11 +81,13 @@ colorscheme darkblue
 set background=dark
 
 " Comments should be grey
-highlight Comment ctermfg=grey
+" highlight Comment ctermfg=grey
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
 
+" Create a 80-character indication 
+set colorcolumn=80
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -98,6 +116,14 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Moving around, tabs and buffers
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
 
 """"""""""""""""""""""""""""""
 " => Status line
